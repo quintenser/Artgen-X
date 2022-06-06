@@ -1,0 +1,213 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Kunstgenerator Icon.ico</ApplicationIcon>
+	<UseWindowsForms>true</UseWindowsForms>
+	<AssemblyName>ArtGenerator</AssemblyName>
+	<RootNamespace>ArtGenerator</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Assets\**" />
+    <EmbeddedResource Remove="Assets\**" />
+    <None Remove="Assets\**" />
+    <Page Remove="Assets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="circle.png" />
+    <None Remove="circlenarrow.png" />
+    <None Remove="circlewide.png" />
+    <None Remove="colorwheel.png" />
+    <None Remove="Gearbutton.png" />
+    <None Remove="gears.png" />
+    <None Remove="gearsturned.png" />
+    <None Remove="heart.png" />
+    <None Remove="Images\Buttons\BackButton.png" />
+    <None Remove="Images\Buttons\colorwheel.png" />
+    <None Remove="Images\Buttons\Gearbutton.png" />
+    <None Remove="Images\Buttons\pinned.png" />
+    <None Remove="Images\Buttons\Playbutton.png" />
+    <None Remove="Images\Buttons\pushpin.png" />
+    <None Remove="Images\Buttons\RefreshButton.png" />
+    <None Remove="Images\Buttons\SaveIcon.png" />
+    <None Remove="Images\Buttons\ShuffleButton.png" />
+    <None Remove="Images\EmojiArt.png" />
+    <None Remove="Images\Icons\big mutation big.png" />
+    <None Remove="Images\Icons\big mutation small.png" />
+    <None Remove="Images\Icons\broadwidth.png" />
+    <None Remove="Images\Icons\circles.png" />
+    <None Remove="Images\Icons\Cubes.png" />
+    <None Remove="Images\Icons\fullDNA.png" />
+    <None Remove="Images\Icons\Green Circle.png" />
+    <None Remove="Images\Icons\green square.png" />
+    <None Remove="Images\Icons\Green Triangle.png" />
+    <None Remove="Images\Icons\heart.png" />
+    <None Remove="Images\Icons\Height.png" />
+    <None Remove="Images\Icons\line.png" />
+    <None Remove="Images\Icons\lines.png" />
+    <None Remove="Images\Icons\mutations.tif" />
+    <None Remove="Images\Icons\OneParent.png" />
+    <None Remove="Images\Icons\parents.png" />
+    <None Remove="Images\Icons\partDNA.png" />
+    <None Remove="Images\Icons\pinned.png" />
+    <None Remove="Images\Icons\pushpin.png" />
+    <None Remove="Images\Icons\small mutation big.png" />
+    <None Remove="Images\Icons\small mutation.png" />
+    <None Remove="Images\Icons\tallHeight.png" />
+    <None Remove="Images\Icons\Triangles.png" />
+    <None Remove="Images\Icons\width.png" />
+    <None Remove="Images\SliderButton.png" />
+    <None Remove="Images\SliderButtonPressed.png" />
+    <None Remove="line.png" />
+    <None Remove="Multiple Squares.png" />
+    <None Remove="MultipleCircles.png" />
+    <None Remove="MultipleLines.png" />
+    <None Remove="MultipleTriangles.png" />
+    <None Remove="pinned.png" />
+    <None Remove="pushpin.png" />
+    <None Remove="RefreshButton.png" />
+    <None Remove="SaveIcon.png" />
+    <None Remove="ShuffleButton.png" />
+    <None Remove="SingleCircle.png" />
+    <None Remove="SingleLine.png" />
+    <None Remove="SingleSquare.png" />
+    <None Remove="SingleTriangle.png" />
+    <None Remove="SliderButton.png" />
+    <None Remove="SliderButtonPressed.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <COMReference Include="{215d64d2-031c-33c7-96e3-61794cd1ee61}">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>4</VersionMinor>
+      <VersionMajor>2</VersionMajor>
+      <Guid>215d64d2-031c-33c7-96e3-61794cd1ee61</Guid>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\Buttons\colorwheel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Buttons\Gearbutton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Buttons\RefreshButton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Buttons\SaveIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Buttons\ShuffleButton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\big mutation big.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\big mutation small.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\broadwidth.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\circles.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\Cubes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\fullDNA.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\Green Circle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\green square.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\Green Triangle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\heart.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\Height.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\line.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\lines.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\mutations.tif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\OneParent.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\parents.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\partDNA.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\pinned.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\pushpin.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\small mutation big.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\small mutation.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\tallHeight.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\Triangles.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Icons\width.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RestSharp" Version="106.12.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\Buttons\BackButton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Buttons\Playbutton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\EmojiArt.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Images\SliderButton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\SliderButtonPressed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="RefreshButton.png" />
+    <Resource Include="SaveIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Python\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

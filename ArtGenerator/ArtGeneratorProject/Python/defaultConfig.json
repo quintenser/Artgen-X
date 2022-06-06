@@ -1,0 +1,1 @@
+{"imageWidth": 1080, "imageHeight": 1920, "circleAmount": 500, "squareAmount": 300, "lineAmount": 2000, "triangleAmount": 50, "generations_until_algorithm_is_used": 5, "small_mutation_chance": 40, "big_mutation_chance": 10, "max_parents": 20}

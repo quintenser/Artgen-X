@@ -1,0 +1,316 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ArtGenerator"
+             xmlns:JsonBodies="clr-namespace:ArtGenerator.API.JsonBodies" x:Class="ArtGenerator.ConfigScreen"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background"/>
+        <SolidColorBrush x:Key="Button.Static.Border"/>
+        <ImageBrush x:Key="Button.MouseOver.Background" ImageSource="\Images\Buttons\Playbutton.png" Stretch="Uniform">
+            <ImageBrush.Transform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.9" Y="0.9"/>
+                </TransformGroup>
+            </ImageBrush.Transform>
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="1" ScaleY="1"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+        </ImageBrush>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" />
+        <ImageBrush x:Key="Button.Pressed.Background" ImageSource="\Images\Buttons\Playbutton.png" Stretch="Uniform"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" />
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="defaultButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="FocusVisual1">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background1"/>
+        <SolidColorBrush x:Key="Button.Static.Border1"/>
+        <ImageBrush x:Key="Button.MouseOver.Background1" ImageSource="/Images/Buttons/BackButton.png" Stretch="Uniform">
+            <ImageBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="1" ScaleY="1"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ImageBrush.RelativeTransform>
+            <ImageBrush.Transform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.9" Y="0.9"/>
+                </TransformGroup>
+            </ImageBrush.Transform>
+        </ImageBrush>
+        <SolidColorBrush x:Key="Button.MouseOver.Border1"/>
+        <ImageBrush x:Key="Button.Pressed.Background1" ImageSource="/Images/Buttons/BackButton.png" Stretch="Uniform"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border1"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background1" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border1" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground1" Color="#FF838383"/>
+        <Style x:Key="BackButton" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual1}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background1}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border1}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border1}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border1}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background1}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border1}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground1}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Viewbox Stretch="Uniform">
+        <ContentControl SnapsToDevicePixels="True">
+            <Grid Width="1920" Height="1080" Background="#33D7D7D7" SnapsToDevicePixels="True">
+                <Slider Style="{DynamicResource defaultSlider}" x:Name="sliLine" IsSnapToTickEnabled="True" TickFrequency="1" ValueChanged="sli_Conf" Value="2000" SmallChange="0" Margin="443,311,1402,751" RenderTransformOrigin="0.5,0.5" Maximum="3000" SnapsToDevicePixels="True">
+                    <Slider.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="8" ScaleY="8"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Slider.RenderTransform>
+                </Slider>
+                <TextBlock x:Name="Titel" TextWrapping="Wrap" Text="Configuratie" Margin="10,10,1410,970" Width="500" Height="100" FontFamily="Arial" FontWeight="Bold" FontSize="72" SnapsToDevicePixels="True"/>
+                <TextBlock x:Name="Subtext" TextWrapping="Wrap" Text="Configureer hier het algoritme" Margin="24,97,1396,883" Width="500" Height="100" FontFamily="Arial" FontWeight="Bold" FontSize="24" SnapsToDevicePixels="True"/>
+                <Slider x:Name="sliCircle" IsSnapToTickEnabled="True" TickFrequency="1" ValueChanged="sli_Conf" Value="500" SmallChange="0" Margin="443,434,1402,630" Style="{DynamicResource defaultSlider}" RenderTransformOrigin="0.5,0.5" Maximum="1000" SnapsToDevicePixels="True">
+                    <Slider.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="8" ScaleY="8"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Slider.RenderTransform>
+                </Slider>
+                <Slider x:Name="sliRectangle" IsSnapToTickEnabled="True" TickFrequency="1" ValueChanged="sli_Conf" SmallChange="0" Margin="439,559,1407,506" Style="{DynamicResource defaultSlider}" RenderTransformOrigin="0.5,0.5" Maximum="1000" SnapsToDevicePixels="True" Value="300">
+                    <Slider.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="8" ScaleY="8"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Slider.RenderTransform>
+                </Slider>
+                <Button Style="{DynamicResource defaultButton}" x:Name="Generate" HorizontalAlignment="Left" Margin="1658,918,0,0" VerticalAlignment="Top" Height="150" Width="299" Click="Button_Click" FontFamily="Arial" FontWeight="Bold" FontSize="20" BorderBrush="{x:Null}" SnapsToDevicePixels="True">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Images/Buttons/Playbutton.png" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
+                <Image HorizontalAlignment="Left" Height="32" Margin="24,259,0,0" VerticalAlignment="Top" Width="32" SnapsToDevicePixels="True"/>
+                <Image HorizontalAlignment="Left" Height="32" Margin="24,259,0,0" VerticalAlignment="Top" Width="32" SnapsToDevicePixels="True"/>
+                <Image HorizontalAlignment="Left" Height="93" Margin="93,277,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/line.png" SnapsToDevicePixels="True"/>
+                <Image HorizontalAlignment="Left" Height="93" Margin="784,277,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/lines.png" SnapsToDevicePixels="True"/>
+                <Image HorizontalAlignment="Left" Height="93" Margin="93,404,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/Green Circle.png" SnapsToDevicePixels="True"/>
+                <Image HorizontalAlignment="Left" Height="92" Margin="93,534,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/green square.png" SnapsToDevicePixels="True"/>
+                <Image HorizontalAlignment="Left" Height="93" Margin="784,404,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/circles.png" SnapsToDevicePixels="True"/>
+                <Image HorizontalAlignment="Left" Height="92" Margin="784,534,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/Cubes.png" SnapsToDevicePixels="True"/>
+                <Button Content="Terug" HorizontalAlignment="Left" Margin="24,1001,0,0" VerticalAlignment="Top" Click="displayStart" Height="82" Width="79" BorderBrush="{x:Null}" Foreground="{x:Null}" Style="{DynamicResource BackButton}" SnapsToDevicePixels="True">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Images/Buttons/BackButton.png"/>
+                    </Button.Background>
+                </Button>
+                <Slider Style="{DynamicResource defaultSlider}" x:Name="sliAlg" IsSnapToTickEnabled="True" TickFrequency="1" ValueChanged="sli_Conf" Value="1" SmallChange="0" Margin="1396,343,448,719" RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="True">
+                    <Slider.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="8" ScaleY="8"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Slider.RenderTransform>
+                </Slider>
+                <Image HorizontalAlignment="Left" Height="92" Margin="1038,309,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/partDNA.png" SnapsToDevicePixels="True"/>
+                <Image HorizontalAlignment="Left" Height="92" Margin="1746,309,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/fullDNA.png" SnapsToDevicePixels="True"/>
+                <Slider Style="{DynamicResource defaultSlider}" x:Name="sliSmaMu" IsSnapToTickEnabled="True" TickFrequency="1" ValueChanged="sli_Conf" Value="40" SmallChange="0" Margin="1396,507,448,555" RenderTransformOrigin="0.5,0.5" Maximum="90" Minimum="20" SnapsToDevicePixels="True">
+                    <Slider.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="8" ScaleY="8"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Slider.RenderTransform>
+                </Slider>
+                <Slider Style="{DynamicResource defaultSlider}" x:Name="sliBigMu" IsSnapToTickEnabled="True" TickFrequency="1" ValueChanged="sli_Conf" Value="10" SmallChange="0" Margin="1396,677,448,385" RenderTransformOrigin="0.5,0.5" Maximum="20" Minimum="1" SnapsToDevicePixels="True">
+                    <Slider.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="8" ScaleY="8"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Slider.RenderTransform>
+                </Slider>
+                <Image HorizontalAlignment="Left" Height="92" Margin="1038,473,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/small mutation.png" SnapsToDevicePixels="True"/>
+                <Image HorizontalAlignment="Left" Height="92" Margin="1746,473,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/small mutation big.png" SnapsToDevicePixels="True"/>
+                <Image HorizontalAlignment="Left" Height="92" Margin="1746,641,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/big mutation big.png" SnapsToDevicePixels="True"/>
+                <Image HorizontalAlignment="Left" Height="92" Margin="1038,641,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/big mutation small.png" SnapsToDevicePixels="True"/>
+                <TextBlock x:Name="Titel_Copy" TextWrapping="Wrap" Text="      Inhoud" Margin="231,137,1189,843" Width="500" Height="100" FontFamily="Arial" FontWeight="Bold" FontSize="72" SnapsToDevicePixels="True"/>
+                <TextBlock x:Name="Titel_Copy1" TextWrapping="Wrap" Text="     Algoritme" Margin="1184,137,236,843" Width="500" Height="100" FontFamily="Arial" FontWeight="Bold" FontSize="72" SnapsToDevicePixels="True"/>
+                <Slider x:Name="sliTriangle" IsSnapToTickEnabled="True" TickFrequency="1" ValueChanged="sli_Conf" Value="50" SmallChange="0" Margin="439,673,1407,392" Style="{DynamicResource defaultSlider}" RenderTransformOrigin="0.5,0.5" Maximum="1000" SnapsToDevicePixels="True">
+                    <Slider.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="8" ScaleY="8"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Slider.RenderTransform>
+                </Slider>
+                <Image HorizontalAlignment="Left" Height="92" Margin="93,647,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/Green Triangle.png" SnapsToDevicePixels="True"/>
+                <Image HorizontalAlignment="Left" Height="92" Margin="784,647,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/Triangles.png" SnapsToDevicePixels="True"/>
+                <Label x:Name="gensUntil" Content="{Binding ElementName=sliAlg, Path=Value}" HorizontalAlignment="Left" Margin="1156,234,0,0" VerticalAlignment="Top" Height="58" Width="66" FontFamily="Arial" FontSize="36" FontWeight="Bold" Foreground="#FF42FB80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SnapsToDevicePixels="True">
+                </Label>
+                <Label x:Name="gensUntil_Copy" Content="Generaties tot activatie algoritme" HorizontalAlignment="Left" Margin="1224,234,0,0" VerticalAlignment="Top" Height="58" Width="578" FontFamily="Arial" FontSize="36" FontWeight="Bold" SnapsToDevicePixels="True"/>
+                <Label x:Name="gensUntil_Copy1" Content="{Binding Value, ElementName=sliSmaMu}" HorizontalAlignment="Left" Margin="1172,416,0,0" VerticalAlignment="Top" Height="47" Width="50" FontFamily="Arial" FontSize="36" FontWeight="Bold" Foreground="#FF42FB80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Label x:Name="gensUntil_Copy2" Content="% kans op een kleine mutatie" HorizontalAlignment="Left" Margin="1224,416,0,0" VerticalAlignment="Top" Height="47" Width="814" FontFamily="Arial" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Label x:Name="gensUntil_Copy3" Content="{Binding Value, ElementName=sliBigMu}" HorizontalAlignment="Left" Margin="1172,591,0,0" VerticalAlignment="Top" Height="52" Width="50" FontFamily="Arial" FontSize="36" FontWeight="Bold" Foreground="#FF42FB80" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Label x:Name="gensUntil_Copy4" Content="% kans op een grote mutatie" HorizontalAlignment="Left" Margin="1224,593,0,0" VerticalAlignment="Top" Height="50" Width="514" FontFamily="Arial" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Label x:Name="label_Line" Content="{Binding Value, ElementName=sliLine}" HorizontalAlignment="Left" Margin="394,234,0,0" VerticalAlignment="Top" Height="58" Width="90" FontFamily="Arial" FontSize="36" FontWeight="Bold" Foreground="#FF42FB80" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Label x:Name="gensUntil_Copy6" Content="Lijnen" HorizontalAlignment="Left" Margin="484,234,0,0" VerticalAlignment="Top" Height="58" Width="172" FontFamily="Arial" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Label x:Name="label_Circle" Content="{Binding Value, ElementName=sliCircle}" HorizontalAlignment="Left" Margin="394,363,0,0" VerticalAlignment="Top" Height="58" Width="90" FontFamily="Arial" FontSize="36" FontWeight="Bold" Foreground="#FF42FB80" FontStretch="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Label x:Name="gensUntil_Copy8" Content="Cirkels" HorizontalAlignment="Left" Margin="484,363,0,0" VerticalAlignment="Top" Height="58" Width="139" FontFamily="Arial" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Label x:Name="label_Square" Content="{Binding Value, ElementName=sliRectangle}" HorizontalAlignment="Left" Margin="394,495,0,0" VerticalAlignment="Top" Height="57" Width="90" FontFamily="Arial" FontSize="36" FontWeight="Bold" Foreground="#FF42FB80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Label x:Name="gensUntil_Copy10" Content="Rechthoeken" HorizontalAlignment="Left" Margin="484,495,0,0" VerticalAlignment="Top" Height="57" Width="238" FontFamily="Arial" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Label x:Name="label_Triangle" Content="{Binding Value, ElementName=sliTriangle}" HorizontalAlignment="Left" Margin="394,616,0,0" VerticalAlignment="Top" Height="58" Width="90" FontFamily="Arial" FontSize="36" FontWeight="Bold" Foreground="#FF42FB80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Label x:Name="gensUntil_Copy12" Content="Driehoeken" HorizontalAlignment="Left" Margin="484,616,0,0" VerticalAlignment="Top" Height="58" Width="217" FontFamily="Arial" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Slider x:Name="sliHeight" IsSnapToTickEnabled="True" TickFrequency="1" ValueChanged="sli_Conf" Value="1920" SmallChange="0" Margin="439,792,1407,273" Style="{DynamicResource defaultSlider}" RenderTransformOrigin="0.5,0.5" Maximum="5000" SnapsToDevicePixels="True" Minimum="1">
+                    <Slider.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="8" ScaleY="8"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Slider.RenderTransform>
+                </Slider>
+                <Image HorizontalAlignment="Left" Height="92" Margin="93,767,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/Height.png" SnapsToDevicePixels="True"/>
+                <Image HorizontalAlignment="Left" Height="92" Margin="784,767,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/tallHeight.png" SnapsToDevicePixels="True"/>
+                <Label x:Name="label_Height" Content="{Binding Value, ElementName=sliHeight}" HorizontalAlignment="Left" Margin="394,723,0,0" VerticalAlignment="Top" Height="59" Width="90" FontFamily="Arial" FontSize="36" FontWeight="Bold" Foreground="#FF42FB80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Label x:Name="Hoogte_Label" Content="Hoogte" HorizontalAlignment="Left" Margin="484,723,0,0" VerticalAlignment="Top" Height="58" Width="148" FontFamily="Arial" FontSize="36" FontWeight="Bold" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Slider x:Name="sliWidth" IsSnapToTickEnabled="True" TickFrequency="1" ValueChanged="sli_Conf" Value="1080" SmallChange="0" Margin="439,908,1407,157" Style="{DynamicResource defaultSlider}" RenderTransformOrigin="0.5,0.5" Maximum="5000" SnapsToDevicePixels="True" Minimum="1">
+                    <Slider.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="8" ScaleY="8"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Slider.RenderTransform>
+                </Slider>
+                <Image HorizontalAlignment="Left" Height="92" Margin="93,883,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/width.png" SnapsToDevicePixels="True"/>
+                <Image HorizontalAlignment="Left" Height="92" Margin="784,883,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/broadwidth.png" SnapsToDevicePixels="True"/>
+                <Label x:Name="Breedte_Label" Content="Breedte" HorizontalAlignment="Left" Margin="484,846,0,0" VerticalAlignment="Top" Height="58" Width="163" FontFamily="Arial" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Label x:Name="label_Width" Content="{Binding Value, ElementName=sliWidth}" HorizontalAlignment="Left" Margin="394,846,0,0" VerticalAlignment="Top" Height="58" Width="90" FontFamily="Arial" FontSize="36" FontWeight="Bold" Foreground="#FF45E87B" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Slider Style="{DynamicResource defaultSlider}" x:Name="sliParents" IsSnapToTickEnabled="True" TickFrequency="1" ValueChanged="sli_Conf" SmallChange="0" Margin="1396,810,448,252" RenderTransformOrigin="0.5,0.5" Maximum="30" Minimum="1" SnapsToDevicePixels="True" Value="20">
+                    <Slider.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="8" ScaleY="8"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Slider.RenderTransform>
+                </Slider>
+                <Image HorizontalAlignment="Left" Height="92" Margin="1746,776,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/parents.png" SnapsToDevicePixels="True"/>
+                <Image HorizontalAlignment="Left" Height="92" Margin="1038,774,0,0" VerticalAlignment="Top" Width="86" Source="Images/Icons/OneParent.png" SnapsToDevicePixels="True"/>
+                <Label x:Name="gensUntil_Copy5" Content="Mogelijke keuzes" HorizontalAlignment="Left" Margin="1224,729,0,0" VerticalAlignment="Top" Height="50" Width="315" FontFamily="Arial" FontSize="36" FontWeight="Bold" VerticalContentAlignment="Center" SnapsToDevicePixels="True"/>
+                <Label x:Name="label_Parents" Content="{Binding Value, ElementName=sliParents}" HorizontalAlignment="Left" Margin="1172,729,0,0" VerticalAlignment="Top" Height="50" Width="50" FontFamily="Arial" FontSize="36" FontWeight="Bold" Foreground="#FF42FB80" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SnapsToDevicePixels="True"/>
+            </Grid>
+        </ContentControl>
+    </Viewbox>
+</UserControl>
+ 
